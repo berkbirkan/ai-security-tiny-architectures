@@ -22,6 +22,10 @@ context, policy, jailbreak, llm, trust, firewall, sentry
 Örnek satırlar:
 
 ```text
+agentai
+agentarmor
+agentaudit
+agentbarrier
 agentguard
 agentshield
 contextlock
@@ -34,6 +38,9 @@ redteamlens
 secretscanner
 tokensentry
 vaultguard
+zerotrustguard
+zerowarden
+zerowatch
 ```
 
 ## Tokenizer
@@ -46,6 +53,20 @@ Bu çalışmada single-letter tokenization kullanılır:
 
 Bu yapı özellikle kısa isim üretimi için yeterlidir. Model kelime veya alt-kelime
 tokenları değil, karakter geçişlerini öğrenir.
+
+Token sözlüğü:
+
+| ID | Token | | ID | Token | | ID | Token |
+|---:|---|---|---:|---|---|---:|---|
+| 0 | `\n` | | 1 | `a` | | 2 | `b` |
+| 3 | `c` | | 4 | `d` | | 5 | `e` |
+| 6 | `f` | | 7 | `g` | | 8 | `h` |
+| 9 | `i` | | 10 | `j` | | 11 | `k` |
+| 12 | `l` | | 13 | `m` | | 14 | `n` |
+| 15 | `o` | | 16 | `p` | | 17 | `r` |
+| 18 | `s` | | 19 | `t` | | 20 | `u` |
+| 21 | `v` | | 22 | `w` | | 23 | `x` |
+| 24 | `y` | | 25 | `z` | |  |  |
 
 ## Modeller
 
@@ -110,6 +131,23 @@ Bu koşuda modeller CPU üzerinde `1600` adım eğitildi. Uniform baseline loss
 Daha yüksek sıcaklıklarda model daha yaratıcı ama daha fazla bozulmuş isim üretir.
 Örneğin `T=1.2` tarafında `agentstacon`, `jailbreakcheakclab`,
 `sessiondentitrack` gibi hatalı veya garip birleşimler görülebilir.
+
+Tam örnek listesi:
+
+| Model | Temperature | Çıktılar |
+|---|---:|---|
+| Qwen3 dense | 0.7 | `toolscan`, `memorycheck`, `memoryguard`, `policyai`, `trustcloud`, `redteamguard`, `secretcloud`, `trustlab`, `guardsentry`, `agenttrace`, `autonomywatch`, `contextcheck`, `prompttlab`, `aigate`, `memorysentry`, `tokenbarrier` |
+| Qwen3 dense | 1.0 | `jailbreakcheck`, `zerocheck`, `sessionsuite`, `secretsentinel`, `credentialdefense`, `zerowatch`, `contextfilter`, `jailbreakarmor`, `llmcloud`, `sessionkit`, `policyscanner`, `secretlens`, `memoryaudit`, `policyheck`, `secretai`, `jailbreakpilot` |
+| Qwen3 dense | 1.2 | `trusthub`, `policyfirewall`, `promptai`, `llmpilot`, `jailbreakbase`, `zeroaudit`, `policysentry`, `secretguard`, `guardscan`, `lmemoryguard`, `jailbreakradar`, `memorystack`, `secretwatch`, `zerocloud`, `guardguard`, `lllmfilter` |
+| Qwen3.5 hybrid | 0.7 | `agentstack`, `aibeacon`, `credentiallock`, `toolwatch`, `sessionscanner`, `contextcheck`, `identitywatch`, `identityshield`, `identityfirewall`, `secretscanner`, `identitylens`, `agentbase`, `contextkit`, `credentialscan`, `policyscanner`, `airadar` |
+| Qwen3.5 hybrid | 1.0 | `memoryguard`, `agentgate`, `sessionshield`, `vault`, `redteamfirewall`, `contextops`, `vaulthub`, `zerocheck`, `autonomyarmor`, `promptsuite`, `policywatch`, `llmscan`, `autonomyaudit`, `agentgate`, `llmbarrier`, `aifirewall` |
+| Qwen3.5 hybrid | 1.2 | `llmlens`, `policyla`, `autonomydefense`, `llmshield`, `redteamcloud`, `sessionsuite`, `autonomyaudit`, `credentialcloud`, `identityarmor`, `policywatch`, `vaultwatch`, `trustguard`, `agentstack`, `sessionfilter`, `redteamcheck`, `redteambeacon` |
+| Gemma-style | 0.7 | `autonomystack`, `airadar`, `sessioncheck`, `tokenai`, `trustdefense`, `credentialai`, `trustlock`, `contextscanner`, `llmmops`, `trustlock`, `autonomywatch`, `trustscan`, `tokenlens`, `tokenbarrier`, `guardai`, `autonomysuite` |
+| Gemma-style | 1.0 | `jailbreaklock`, `credentialhub`, `secretarmor`, `credentiallab`, `jailbreaklab`, `vaultlock`, `tokensentry`, `memoryai`, `credentialcheck`, `llmbase`, `llmscanner`, `jailbreakshield`, `guardaudit`, `secretcloud`, `tokentrace`, `secretlock` |
+| Gemma-style | 1.2 | `tokenlock`, `credentialaudit`, `memorysuite`, `jailbreaklens`, `sessiontrace`, `redteamwarden`, `redteamscan`, `zerofirewall`, `zerocloud`, `sessiondentitrack`, `secretcheck`, `aiscan`, `secretaudit`, `llmmradguard`, `guardshield`, `tokenkit` |
+| DeepSeek-style sparse | 0.7 | `jailbreakcloud`, `airadar`, `guardguard`, `contexttrace`, `toolops`, `trustlock`, `tokenwarden`, `aicheck`, `agentfilter`, `aigate`, `autonomygate`, `agenttrace`, `policyai`, `trusttrace`, `contextwatch`, `agentscan` |
+| DeepSeek-style sparse | 1.0 | `contextbase`, `promptmonit`, `contextaudit`, `sessionlens`, `vaultfirewall`, `autonomybarrier`, `redteamgate`, `secretdefense`, `trustaudit`, `promptbase`, `aiarmor`, `memorymonitor`, `guardfilter`, `agentradar`, `zerocheck`, `sessionbase` |
+| DeepSeek-style sparse | 1.2 | `ub`, `vaultdefense`, `agentcheck`, `trusthub`, `policyguard`, `secretmonitor`, `agentstacon`, `promptcheck`, `aipilot`, `lmbase`, `tokenwatch`, `contextarmor`, `zerobeacon`, `agentdegate`, `tokenpilar`, `jailbreakcheakclab` |
 
 ## Kalite Kontrolleri
 
